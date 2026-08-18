@@ -5,7 +5,7 @@ export default function Home() {
         <div className="toolbar">
           <div>
             <p className="eyebrow">MVP workspace</p>
-            <h1>Job Application Intelligence</h1>
+            <h1>ApplyAI</h1>
           </div>
           <span className="status">Planning scaffold</span>
         </div>
@@ -34,4 +34,3 @@ export default function Home() {
     </main>
   );
 }
-

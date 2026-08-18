@@ -1,7 +1,7 @@
 [project]
-name = "job-application-intelligence-backend"
+name = "applyai-backend"
 version = "0.1.0"
-description = "FastAPI backend for Job Application Intelligence."
+description = "FastAPI backend for ApplyAI."
 requires-python = ">=3.12"
 dependencies = [
   "alembic>=1.13.2",
@@ -29,4 +29,3 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-

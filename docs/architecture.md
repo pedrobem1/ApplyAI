@@ -1,6 +1,6 @@
 # Architecture
 
-Job Application Intelligence is a web application for comparing job requirements against resume evidence. The product uses LLMs for structured extraction and verification, but keeps retrieval, persistence and scoring inside deterministic application code.
+ApplyAI is a web application for comparing job requirements against resume evidence. The product uses LLMs for structured extraction and verification, but keeps retrieval, persistence and scoring inside deterministic application code.
 
 ## System Shape
 
@@ -78,4 +78,3 @@ Formula:
 ```text
 score = weighted_points_obtained / weighted_points_possible
 ```
-

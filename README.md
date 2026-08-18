@@ -1,4 +1,4 @@
-# Job Application Intelligence
+# ApplyAI
 
 MVP para analisar vagas em relacao ao curriculo do candidato usando FastAPI, Next.js, PostgreSQL, pgvector e OpenAI.
 
@@ -92,4 +92,3 @@ URL ou texto da vaga
 8. Matching e score.
 9. Tela de analise e analytics basico.
 10. Logs, metricas de IA, testes, deploy e README final.
-

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Job Application Intelligence",
+  title: "ApplyAI",
   description: "Analyze job applications against resume evidence.",
 };
 
@@ -17,4 +17,3 @@ export default function RootLayout({
     </html>
   );
 }
-
