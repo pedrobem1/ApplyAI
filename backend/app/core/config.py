@@ -18,12 +18,18 @@ class Settings(BaseSettings):
     )
     upload_dir: str = Field(default="uploads", alias="UPLOAD_DIR")
     openai_extraction_model: str = Field(default="gpt-4.1-mini", alias="OPENAI_EXTRACTION_MODEL")
-    openai_embedding_model: str = Field(default="text-embedding-3-small", alias="OPENAI_EMBEDDING_MODEL")
+    openai_embedding_model: str = Field(
+        default="text-embedding-3-small",
+        alias="OPENAI_EMBEDDING_MODEL",
+    )
 
     @cached_property
     def backend_cors_origins(self) -> list[str]:
-        return [origin.strip() for origin in self.backend_cors_origins_raw.split(",") if origin.strip()]
+        return [
+            origin.strip()
+            for origin in self.backend_cors_origins_raw.split(",")
+            if origin.strip()
+        ]
 
 
 settings = Settings()
-
