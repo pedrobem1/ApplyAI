@@ -86,3 +86,9 @@ unknown = 1.0x
 - **Database:** PostgreSQL, pgvector
 - **AI:** OpenAI Responses API, Structured Outputs, embeddings
 - **Deploy:** Vercel, Render, Supabase
+
+## Deployment
+
+- Frontend hosted on Vercel.
+- Backend API hosted on Render.
+- PostgreSQL + pgvector hosted on Supabase.
