@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import analyses, health, jobs, resumes
+from app.api.auth import SharedAccessTokenMiddleware
+from app.api.routes import analyses, auth, health, jobs, metrics, resumes
 from app.core.config import settings
 
 app = FastAPI(title="ApplyAI API", version="0.1.0")
@@ -13,8 +14,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(SharedAccessTokenMiddleware)
 
+app.include_router(auth.router)
 app.include_router(health.router)
 app.include_router(resumes.router, prefix="/resumes", tags=["resumes"])
 app.include_router(jobs.router, prefix="/jobs", tags=["jobs"])
 app.include_router(analyses.router, tags=["analyses"])
+app.include_router(metrics.router, tags=["metrics"])

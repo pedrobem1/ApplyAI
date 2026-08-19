@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: applyai-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: BACKEND_CORS_ORIGINS
+        sync: false
+      - key: APP_ACCESS_TOKEN
+        sync: false
+      - key: DEMO_LOGIN_USERNAME
+        sync: false
+      - key: DEMO_LOGIN_PASSWORD
+        sync: false
+      - key: MAX_UPLOAD_BYTES
+        value: "5000000"
+      - key: DELETE_UPLOADED_PDF_AFTER_PARSE
+        value: "true"
+      - key: OPENAI_EXTRACTION_MODEL
+        value: gpt-4.1-mini
+      - key: OPENAI_EMBEDDING_MODEL
+        value: text-embedding-3-small
