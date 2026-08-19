@@ -14,6 +14,7 @@ class ManualJobRequest(BaseModel):
 
 
 class JobImportResponse(BaseModel):
+    job_id: int
     source_type: str
     url: str | None = None
     title: str | None = None
@@ -23,9 +24,40 @@ class JobImportResponse(BaseModel):
     preview: str
 
 
+class JobPreviewResponse(BaseModel):
+    source_type: str
+    url: str | None = None
+    title: str | None = None
+    company: str | None = None
+    scrape_status: str | None = None
+    character_count: int
+    preview: str
+    description: str
+
+
+class JobListItem(BaseModel):
+    job_id: int
+    source_type: str
+    url: str | None = None
+    title: str | None = None
+    company: str | None = None
+    location: str | None = None
+    scrape_status: str | None = None
+    character_count: int
+    preview: str
+
+
+class JobRequirementResponse(BaseModel):
+    id: int
+    name: str
+    category: str
+    importance: str
+    raw_text: str
+
+
 class JobRequirementExtractionResponse(BaseModel):
+    job_id: int | None = None
     role: str | None = None
     company: str | None = None
     location: str | None = None
-    requirements: list[ExtractedJobRequirement]
-
+    requirements: list[ExtractedJobRequirement] | list[JobRequirementResponse]

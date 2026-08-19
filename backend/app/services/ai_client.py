@@ -77,6 +77,26 @@ def generate_structured_output[StructuredModel: BaseModel](
 
 
 def generate_embedding(text: str) -> list[float]:
+    embedding, _metrics = generate_embedding_with_metrics(text)
+    return embedding
+
+
+def generate_embedding_with_metrics(
+    text: str,
+) -> tuple[list[float], dict[str, int | str | bool | None]]:
     client = _get_openai_client()
+    started_at = time.perf_counter()
     response = client.embeddings.create(model=settings.openai_embedding_model, input=text)
-    return response.data[0].embedding
+    latency_ms = int((time.perf_counter() - started_at) * 1000)
+    usage = getattr(response, "usage", None)
+
+    metrics = {
+        "model": settings.openai_embedding_model,
+        "input_tokens": getattr(usage, "prompt_tokens", None)
+        or getattr(usage, "input_tokens", None),
+        "output_tokens": getattr(usage, "output_tokens", None),
+        "latency_ms": latency_ms,
+        "success": True,
+    }
+
+    return response.data[0].embedding, metrics

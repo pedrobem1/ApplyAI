@@ -108,6 +108,7 @@ class RequirementMatch(TimestampMixin, Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     requirement_id: Mapped[int] = mapped_column(ForeignKey("job_requirements.id"), nullable=False)
+    resume_id: Mapped[int | None] = mapped_column(ForeignKey("resumes.id"))
     classification: Mapped[str] = mapped_column(String(40), nullable=False)
     confidence: Mapped[int] = mapped_column(Integer, nullable=False)
     explanation: Mapped[str] = mapped_column(Text, nullable=False)
@@ -138,4 +139,3 @@ class AiRun(TimestampMixin, Base):
     latency_ms: Mapped[int | None] = mapped_column(Integer)
     success: Mapped[str] = mapped_column(String(10), nullable=False)
     error_message: Mapped[str | None] = mapped_column(Text)
-
